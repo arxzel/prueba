@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es">
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5/jquery.mobile.theme-1.4.5.min.css">
+
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+
+        <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <title>Formulario</title>
+    </head>
+    <body>
+        <section data-role="page" id="index">
+            <header data-role="header">
+                <h1>Formulario</h1>
+            </header>
+            <content data-role="content">
+                <div id="infoBasic">
+                    <form id="formInfoBasic">
+                        <label for="fechValo">Fecha de valoración:</label>
+                        <input name="fechValo" id="fechValo" value="" type="fechValo" placeholder="DD/MM/AAAA">
+
+                        <label for="nombPacien">Nombre del paciente:</label>
+                        <input name="nombPacien" id="nombPacien" value="" type="text" placeholder="Nombre">
+
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <legend>Estado Civil:</legend>
+                            
+                            <input name="estadoCivil" id="ECSoltero" value="Soltero" checked="checked" type="radio">
+                            <label for="ECSoltero" onclick="inahibilitarEstadoCivilOtro()">Soltero</label>
+                            
+                            <input name="estadoCivil" id="ECCasado" value="Casado" type="radio">
+                            <label for="ECCasado" onclick="inahibilitarEstadoCivilOtro()">Casado</label>
+                            
+                            <input name="estadoCivil" id="otro" value="otro" type="radio" onclick="habilitarEstadoCivilOtro()">
+                            <label for="otro">otro</label>
+                            <div id="divECOCual">
+                                
+                            </div>
+                            
+                        </fieldset>
+                    </form>
+                </div>
+            </content>
+            <footer data-role="footer">
+                <h1>footer- pie de pagina</h1>
+            </footer>
+        </section>
+
+
+        <script type="text/javascript">
+
+            function inahibilitarEstadoCivilOtro(){
+
+                var divECOCual = document.getElementById("divECOCual");
+                 var desactivado="<input name='ECOCual' id='ECOCual' value='' type='text' placeholder='Estado Civil' disabled='true'>";
+                 divECOCual.innerHTML=desactivado;
+            }
+            function habilitarEstadoCivilOtro(){
+               
+
+                var activado =" <input name='ECOCual' id='ECOCual' value='' type='text' placeholder='Estado Civil'>";
+
+                var divECOCual = document.getElementById("divECOCual");
+
+                divECOCual.innerHTML=activado;
+            }
+        </script>
+
+    </body>
+</html>
